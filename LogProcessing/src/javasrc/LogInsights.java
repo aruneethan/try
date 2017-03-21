@@ -60,7 +60,7 @@ public class LogInsights {
 				// To process the line stream to get insights
 				productLines.map(line -> line.split("/"))
 						.map(arr -> new ProductCheckout(arr[4], arr[5], Integer.parseInt(arr[6])))
-						.collect(Collectors.toList()).parallelStream().parallel()
+						.collect(Collectors.toList()).stream()
 						.collect(Collectors.groupingBy(ProductCheckout::getProductName,
 								Collectors.summingInt(ProductCheckout::getNumberOfItem)))
 						.entrySet().stream().sorted(Map.Entry.<String, Integer> comparingByValue().reversed())
@@ -75,7 +75,7 @@ public class LogInsights {
 				// To process the line stream to get insights
 				customerLines.map(line -> line.split("/"))
 						.map(arr -> new ProductCheckout(arr[4], arr[5], Integer.parseInt(arr[6])))
-						.collect(Collectors.toList()).parallelStream().parallel()
+						.collect(Collectors.toList()).stream()
 						.collect(Collectors.groupingBy(ProductCheckout::getCustomerId,
 								Collectors.summingInt(ProductCheckout::getNumberOfItem)))
 						.entrySet().stream().sorted(Map.Entry.<String, Integer> comparingByValue().reversed())
