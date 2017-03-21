@@ -29,8 +29,8 @@ Example:1 3 denotes -> 1 Top customer and 3 Top product based on the number of i
 
 
 6)Limitation / Issues of this program:
-1) Date related business case has not been added; only first 2 business cases have been considered
-2) I have used Java stream processing to handle the large file. This need batch wise map and reduce 
+Date related business case has not been added; only first 2 business cases have been considered.
+I have used Java stream processing to handle the large file. This need batch wise map and reduce 
 I have implemented with only one level of map and reduce. Currently it handles 500 MB within 15-20 seconds. 
 For large files > 1GB I am getting memory issues. I could not add Batch processing, multilevel map reduce 
 with optimal object / stream usage currently. There are approaches to handle as byte to process. I have not tried.
